@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body{
+    margin: 0;
+    background-color: #333B40;
+}
+.title{
+  font-family: 'Ubuntu Condensed', sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+  font-size: 17px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: color .2s;
+  color: #fff;
+  padding: 10px 0 10px 0;
+  margin: 0 34px 0 30px;
+}
+.text{
+  font-family: 'Ubuntu Condensed', sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+  font-size: 17px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: color .2s;
+  color: #fff;
+}
+/* Стиль горизонтального меню */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 25px 0 5px;
+  text-align: center;
+  background: #766AC8;
+}
+
+.menu-main li {
+  display: inline-block;
+  position: relative; /* Добавлено для корректного позиционирования подменю */
+}
+
+.menu-main li:after {
+  content: "|";
+  color: #606060;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.menu-main li:last-child:after {
+  content: none;
+}
+
+.menu-main a {
+  text-decoration: none;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 20px;
+  margin: 0 34px 0 30px;
+  font-size: 17px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: color .2s;
+  color: #9d999d;
+}
+
+.menu-main a.current,
+.menu-main a:hover {
+  color: #fff;
+}
+
+.menu-main a:before,
+.menu-main a:after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  top: auto;
+  right: 50%;
+  bottom: -5px;
+  left: 50%;
+  background: #fff;
+  transition: .8s;
+}
+
+.menu-main a:hover:before,
+.menu-main .current:before {
+  left: 0;
+}
+
+.menu-main a:hover:after,
+.menu-main .current:after {
+  right: 0;
+}
+
+/* Стили для выпадающего меню */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #766AC8;
+  margin-top: 10px;
+  padding: 10px 0;
+  width: 200px;
+  transition: opacity 0.3s ease-in-out; /* Добавляем анимацию исчезновения */
+  opacity: 0; /* Изначально меню прозрачное */
+  pointer-events: none; /* Чтобы при наведении курсора на скрытое меню оно не реагировало на события */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1; /* При наведении меню становится непрозрачным */
+  pointer-events: auto; /* Возвращаем обработку событий для меню */
+}
+.dropdown-menu li {
+  display: block;
+  text-align: left;
+}
+
+.dropdown-menu li a {
+  color: #fff;
+  padding: 10px 20px;
+  transition: background .2s;
+}
+
+/* Стиль вертикального меню */
+#vertical-menu{
+    margin: 5px 0 0 5px;
+    padding: 0;
+    list-style-type: none;
+    width: 150px;
+}
+#vertical-menu a {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    background-color: #766AC8;  
+    color: #fff;
+    padding: 15px; 
+    text-decoration: none;
+    font-weight: bold; 
+    border-left: 5px solid #657b89;
+    display: block;
+} 
+#vertical-menu a:hover { 
+    opacity: 0.8;
+} 
+/* Анимации */
+@keyframes moveAnimation {
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(50px, 50px, 50px); }
+  100% { transform: translate3d(100px, 100px, 100px); }
+}
+
+.move-animation {
+  width: 100px;
+  height: 100px;
+  background-color: #766AC8;
+  animation: moveAnimation 3s infinite alternate;
+}
+@keyframes rotateAnimation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.rotate-animation {
+  width: 100px;
+  height: 100px;
+  background-color: #766AC8;
+  animation: rotateAnimation 3s linear infinite;
+}
+@keyframes scaleAnimation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+.scale-animation {
+  width: 100px;
+  height: 100px;
+  background-color: #766AC8;
+  animation: scaleAnimation 3s infinite alternate;
+}
+@keyframes skewAnimation {
+  0% { transform: skew(0deg); }
+  50% { transform: skew(30deg); }
+  100% { transform: skew(0deg); }
+}
+
+.skew-animation {
+  width: 100px;
+  height: 100px;
+  background-color: #766AC8;
+  animation: skewAnimation 3s infinite alternate;
+}
+#animations{
+  margin: 50px 0 0 0;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#error{
+  font-size: 30px;
+  text-decoration: none;
+  color: #ff0000;
+}
+svg {
+  width: 200px;
+  height: 200px;
+}
+#swg-animations{
+  margin: 50px 0 0 0;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#myEllipse {
+  fill: green;
+}
+#myRect {
+  fill: orange;
+}
+</style>
+<body>
+    <h3 class="title">Создание меню</h1>
+    <!-- Горизонтальное меню -->
+    <nav>
+        <ul class="menu-main">
+            <li><a href="#" class="current">Главная</a></li>
+            <li class="dropdown">
+                <a href="#">Магазин</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Категория 1</a></li>
+                    <li><a href="#">Категория 2</a></li>
+                    <li><a href="#">Категория 3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Блог</a></li>
+            <li><a href="#">О нас</a></li>
+        </ul>
+        
+    </nav>
+    <!-- Вертикальное меню -->
+    <nav>
+        <ul id="vertical-menu">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Магазин</a></li>
+            <li><a href="#">Блог</a></li>
+            <li><a href="#">О нас</a></li>
+        </ul>
+    </nav>
+    <!-- Раздел с анимациями -->
+    <h3 class="title">Анимации</h3>
+    <div id="animations">
+        <div class="move-animation" class="text"><p>translate</p></div>
+        <div class="rotate-animation" class="text"><p>rotate</p></div>
+        <!-- ссылка на страницу 404 -->
+        <a href="404paga.html" id="error">Перейти</a>
+        <div class="scale-animation" class="text"><p>scale</p></div>
+        <div class="skew-animation" class="text"><p>skew</p></div>
+    </div>
+    <!-- svg рисунок -->
+    <h3 class="title" style="margin: 100px 0 0 0;">SVG рисунок</h3>
+    <div id="cwg-animations">
+        <!-- изменение размера и цвета -->
+        <svg viewBox="0 0 100 100">
+        <circle id="myCircle" cx="50" cy="50" r="20" fill="blue">
+            <animate attributeName="r" values="20;40;20" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="fill" values="blue;red;blue" dur="2s" repeatCount="indefinite" />
+        </circle>
+        <!-- перемещение объекта -->
+        </svg>
+        <svg viewBox="0 0 100 100">
+            <rect id="myRect" x="10" y="10" width="20" height="20">
+                <animate attributeName="x" from="10" to="80" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="y" from="10" to="80" dur="2s" repeatCount="indefinite" />
+            </rect>
+        </svg>
+        <!-- изменение прозрачности -->
+        <svg viewBox="0 0 100 100">
+            <ellipse id="myEllipse" cx="50" cy="50" rx="20" ry="10">
+                <animate attributeName="fill-opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" />
+            </ellipse>
+        </svg>
+    </div>
+    
+</body>
+</html>
